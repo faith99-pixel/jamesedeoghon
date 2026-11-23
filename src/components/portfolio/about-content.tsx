@@ -7,22 +7,18 @@ import { Reveal } from "./reveal";
 
 const facts = [
   {
-    num: "I",
     title: "Physician",
     text: "A practising medical doctor, navigating residency on one side of the sea and Lagos roots on the other.",
   },
   {
-    num: "II",
     title: "Storyteller",
     text: "Writes with the certainty of a clinician's chart and the pulse of someone who has listened to a thousand stories.",
   },
   {
-    num: "III",
     title: "Between worlds",
     text: "His fiction documents the British pastoral as much as it divulges the perils of Lagos living.",
   },
   {
-    num: "IV",
     title: "Debut novelist",
     text: "British Natasha and the Ashewo Doctor marks his first novel — a four-part, 235-page love letter to messy humanity.",
   },
@@ -120,18 +116,16 @@ export function AboutContent() {
             {facts.map((f, i) => (
               <Reveal key={f.title} delay={0.06 * i}>
                 <div className="border-t border-border py-7">
-                  <p className="flex items-baseline gap-4">
+                  <p className="flex items-center gap-3.5">
                     <span
                       aria-hidden="true"
-                      className="font-display text-sm italic text-accent"
-                    >
-                      {f.num}
-                    </span>
+                      className="h-1.5 w-1.5 shrink-0 rotate-45 bg-accent"
+                    />
                     <span className="font-display text-xl text-foreground">
                       {f.title}
                     </span>
                   </p>
-                  <p className="mt-2.5 pl-9 text-sm leading-relaxed text-muted-foreground">
+                  <p className="mt-2.5 pl-5 text-sm leading-relaxed text-muted-foreground">
                     {f.text}
                   </p>
                 </div>

@@ -12,7 +12,6 @@ export default function AboutPage() {
   return (
     <>
       <PageHeader
-        index="01"
         kicker="About the author"
         title={
           <>

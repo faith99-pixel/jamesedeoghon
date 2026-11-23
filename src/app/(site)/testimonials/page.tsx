@@ -12,7 +12,6 @@ export default function TestimonialsPage() {
   return (
     <>
       <PageHeader
-        index="03"
         kicker="Testimonials"
         title={
           <>

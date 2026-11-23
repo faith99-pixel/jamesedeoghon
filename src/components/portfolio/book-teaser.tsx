@@ -19,12 +19,6 @@ export function BookTeaser() {
                   className="h-px w-10 bg-[oklch(0.72_0.1_75/0.5)]"
                 />
                 The debut novel
-                <span
-                  aria-hidden="true"
-                  className="font-display text-sm font-light italic normal-case tracking-normal text-[oklch(0.93_0.012_84/0.5)]"
-                >
-                  02
-                </span>
               </p>
               <h2 className="mt-6 max-w-xl font-display font-light text-4xl leading-[1.08] tracking-[-0.01em] text-[oklch(0.93_0.012_84)] sm:text-5xl">
                 British Natasha{" "}

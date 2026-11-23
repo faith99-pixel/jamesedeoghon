@@ -14,12 +14,6 @@ export function EventsTeaser() {
               <p className="flex items-center justify-center gap-4 text-[11px] font-semibold uppercase tracking-[0.3em] text-accent">
                 <span aria-hidden="true" className="h-px w-10 bg-accent/60" />
                 Events
-                <span
-                  aria-hidden="true"
-                  className="font-display text-sm font-light italic normal-case tracking-normal text-muted-foreground/70"
-                >
-                  03
-                </span>
                 <span aria-hidden="true" className="h-px w-10 bg-accent/60" />
               </p>
               <h2 className="mt-7 font-display font-light text-4xl leading-[1.08] tracking-[-0.01em] text-foreground sm:text-5xl">

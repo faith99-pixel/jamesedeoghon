@@ -1,12 +1,10 @@
 import { Reveal } from "./reveal";
 
 export function PageHeader({
-  index,
   kicker,
   title,
   description,
 }: {
-  index: string;
   kicker: string;
   title: React.ReactNode;
   description?: string;
@@ -20,12 +18,6 @@ export function PageHeader({
               {kicker}
             </span>
             <span aria-hidden="true" className="h-px flex-1 bg-border" />
-            <span
-              aria-hidden="true"
-              className="font-display text-sm italic text-muted-foreground/80"
-            >
-              {index}
-            </span>
           </div>
         </Reveal>
         <Reveal delay={0.08}>

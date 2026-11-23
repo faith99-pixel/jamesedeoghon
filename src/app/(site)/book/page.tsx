@@ -12,7 +12,6 @@ export default function BookPage() {
   return (
     <>
       <PageHeader
-        index="02"
         kicker="The debut novel"
         title={
           <>
