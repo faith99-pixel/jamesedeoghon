@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ShoppingBag } from "lucide-react";
 import { Reveal } from "./reveal";
+import { AMAZON_BOOK_URL } from "@/lib/links";
 
 const blurbs = [
   { word: "Captivating", author: "Sarah Haluwa" },
@@ -106,13 +107,16 @@ export function BookContent() {
 
               <Reveal delay={0.3}>
                 <div className="mt-10 flex flex-wrap items-center gap-5">
-                  <Link
-                    href="/contact"
+                  <a
+                    href={AMAZON_BOOK_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Order your copy of British Natasha and the Ashewo Doctor on Amazon"
                     className="inline-flex items-center gap-3 bg-primary px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-foreground transition-colors duration-300 hover:bg-accent hover:text-accent-foreground"
                   >
                     <ShoppingBag className="h-3.5 w-3.5" aria-hidden="true" />
                     Order your copy
-                  </Link>
+                  </a>
                   <a
                     href="https://www.pulse.ng/story/british-natasha-and-the-ashewo-doctor-review-2026100915225947559"
                     target="_blank"

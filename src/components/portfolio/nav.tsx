@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { AMAZON_BOOK_URL } from "@/lib/links";
 
 const links = [
   { href: "/about", label: "About" },
@@ -87,12 +88,15 @@ export function Nav() {
                 {l.label}
               </Link>
             ))}
-            <Link
-              href="/book"
+            <a
+              href={AMAZON_BOOK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Order British Natasha and the Ashewo Doctor on Amazon"
               className="inline-flex items-center border border-foreground/70 px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-foreground transition-colors duration-300 hover:bg-foreground hover:text-background"
             >
               Get the Book
-            </Link>
+            </a>
           </div>
 
           <button
@@ -120,43 +124,39 @@ export function Nav() {
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             className="fixed inset-0 z-40 flex flex-col bg-ink md:hidden"
           >
-            <div className="flex flex-1 flex-col justify-center px-8">
-              {mobileLinks.map((l, i) => (
-                <motion.div
-                  key={l.href}
-                  initial={{ opacity: 0, y: 14 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    delay: 0.1 + 0.06 * i,
-                    duration: 0.5,
-                    ease: [0.22, 1, 0.36, 1],
-                  }}
-                  className="border-b border-[oklch(0.93_0.012_84/0.12)]"
-                >
-                  <Link
-                    href={l.href}
-                    onClick={() => setOpen(false)}
-                    aria-current={isActive(l.href) ? "page" : undefined}
-                    className="group flex items-baseline gap-5 py-5"
+            <div className="flex flex-1 flex-col overflow-y-auto px-8 pb-2 pt-16">
+              <nav aria-label="Mobile menu" className="my-auto">
+                {mobileLinks.map((l, i) => (
+                  <motion.div
+                    key={l.href}
+                    initial={{ opacity: 0, y: 14 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      delay: 0.1 + 0.06 * i,
+                      duration: 0.5,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
+                    className="border-b border-[oklch(0.93_0.012_84/0.12)]"
                   >
-                    <span
-                      aria-hidden="true"
-                      className="text-xs italic text-[oklch(0.72_0.1_75)]"
+                    <Link
+                      href={l.href}
+                      onClick={() => setOpen(false)}
+                      aria-current={isActive(l.href) ? "page" : undefined}
+                      className="group block py-5"
                     >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span
-                      className={`text-2xl font-light uppercase tracking-[0.2em] transition-colors ${
-                        isActive(l.href)
-                          ? "text-[oklch(0.93_0.012_84)]"
-                          : "text-[oklch(0.93_0.012_84/0.55)] group-hover:text-[oklch(0.93_0.012_84)]"
-                      }`}
-                    >
-                      {l.label}
-                    </span>
-                  </Link>
-                </motion.div>
-              ))}
+                      <span
+                        className={`text-2xl font-light uppercase tracking-[0.2em] transition-colors ${
+                          isActive(l.href)
+                            ? "text-[oklch(0.93_0.012_84)]"
+                            : "text-[oklch(0.93_0.012_84/0.55)] group-hover:text-[oklch(0.93_0.012_84)]"
+                        }`}
+                      >
+                        {l.label}
+                      </span>
+                    </Link>
+                  </motion.div>
+                ))}
+              </nav>
             </div>
 
             <motion.div
@@ -181,13 +181,15 @@ export function Nav() {
                   @novelistjames — Instagram
                 </a>
               </div>
-              <Link
-                href="/book"
-                onClick={() => setOpen(false)}
+              <a
+                href={AMAZON_BOOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Order British Natasha and the Ashewo Doctor on Amazon"
                 className="mt-7 block border border-[oklch(0.93_0.012_84/0.4)] py-4 text-center text-[11px] font-semibold uppercase tracking-[0.24em] text-[oklch(0.93_0.012_84)] transition-colors hover:bg-[oklch(0.93_0.012_84)] hover:text-ink"
               >
                 Get the Book
-              </Link>
+              </a>
             </motion.div>
           </motion.div>
         )}

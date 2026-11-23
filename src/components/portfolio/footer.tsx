@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AMAZON_BOOK_URL } from "@/lib/links";
 
 const pageLinks = [
   { href: "/", label: "Home" },
@@ -86,9 +87,15 @@ export function Footer() {
 
         <div className="mt-14 flex flex-col items-center justify-between gap-3 border-t border-[oklch(0.93_0.012_84/0.12)] pt-7 text-xs text-[oklch(0.93_0.012_84/0.5)] sm:flex-row">
           <p>© {new Date().getFullYear()} James Edeoghon. All rights reserved.</p>
-          <p className="italic">
+          <a
+            href={AMAZON_BOOK_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Order British Natasha and the Ashewo Doctor on Amazon"
+            className="link-sweep italic transition-colors hover:text-[oklch(0.93_0.012_84)]"
+          >
             British Natasha and the Ashewo Doctor — out now.
-          </p>
+          </a>
         </div>
       </div>
     </footer>
