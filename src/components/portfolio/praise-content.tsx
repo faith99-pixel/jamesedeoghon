@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Quote } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Reveal } from "./reveal";
 import { PraiseMarquee } from "./praise-marquee";
 
@@ -30,23 +30,6 @@ const blurbs = [
   { word: "Intense", author: "Deborah Kira" },
 ];
 
-function HighlightedQuote({
-  text,
-  highlight,
-}: {
-  text: string;
-  highlight: string;
-}) {
-  const [before, after] = text.split(highlight);
-  return (
-    <blockquote className="font-display text-2xl italic leading-snug text-foreground/90 sm:text-3xl md:text-[2.5rem] md:leading-[1.22]">
-      &ldquo;{before}
-      <span className="text-accent">{highlight}</span>
-      {after}&rdquo;
-    </blockquote>
-  );
-}
-
 export function PraiseContent() {
   return (
     <>
@@ -54,65 +37,68 @@ export function PraiseContent() {
 
       {/* Editorial quotes */}
       <section className="relative py-20 md:py-28">
-        <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <div className="mx-auto max-w-3xl space-y-16 md:space-y-20">
-            {quotes.map((q, i) => (
-              <Reveal key={i} delay={0.05 * i}>
-                <figure className={i % 2 === 1 ? "md:pl-16" : "md:pr-16"}>
-                  <Quote
-                    className="mb-5 h-6 w-6 text-accent/70"
-                    aria-hidden="true"
-                  />
-                  <HighlightedQuote text={q.text} highlight={q.highlight} />
-                  <figcaption className="mt-6 flex items-center gap-3">
-                    <span
-                      aria-hidden="true"
-                      className="h-px w-10 bg-gradient-to-r from-accent/60 to-transparent"
-                    />
-                    <span className="text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
-                      Pulse Nigeria — Book Review, October 2026
-                    </span>
-                  </figcaption>
-                </figure>
-              </Reveal>
-            ))}
+        <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+          <div className="mx-auto max-w-3xl">
+            {quotes.map((q, i) => {
+              const [before, after] = q.text.split(q.highlight);
+              return (
+                <Reveal key={i} delay={0.05 * i}>
+                  <figure className="border-t border-border py-10 md:py-12">
+                    <blockquote className="font-display text-2xl font-light italic leading-snug text-foreground/90 sm:text-3xl md:text-[2.4rem] md:leading-[1.22]">
+                      &ldquo;{before}
+                      <span className="text-accent">{q.highlight}</span>
+                      {after}&rdquo;
+                    </blockquote>
+                    <figcaption className="mt-6 flex items-center gap-4">
+                      <span
+                        aria-hidden="true"
+                        className="h-px w-10 bg-gradient-to-r from-accent/60 to-transparent"
+                      />
+                      <span className="text-[10px] font-semibold uppercase tracking-[0.26em] text-muted-foreground">
+                        Pulse Nigeria — Book Review, October 2026
+                      </span>
+                    </figcaption>
+                  </figure>
+                </Reveal>
+              );
+            })}
           </div>
 
-          <Reveal delay={0.1} className="mt-16 text-center">
+          <Reveal delay={0.1} className="mt-4 text-center">
             <a
               href="https://www.pulse.ng/story/british-natasha-and-the-ashewo-doctor-review-2026100915225947559"
               target="_blank"
               rel="noopener noreferrer"
-              className="link-sweep inline-block text-sm text-muted-foreground transition-colors hover:text-accent"
+              className="link-sweep inline-block text-[11px] font-semibold uppercase tracking-[0.24em] text-muted-foreground transition-colors hover:text-foreground"
             >
-              Read the full review on Pulse Nigeria →
+              Read the full review on Pulse Nigeria
             </a>
           </Reveal>
         </div>
       </section>
 
       {/* Cover blurbs */}
-      <section className="grain relative border-t border-border/70 bg-secondary/40 py-20 md:py-24">
-        <div className="relative z-10 mx-auto max-w-6xl px-5 md:px-8">
+      <section className="border-t border-border py-20 md:py-24">
+        <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="flex items-center justify-center gap-3 text-xs font-medium uppercase tracking-[0.3em] text-accent">
-              <span aria-hidden="true" className="h-px w-10 bg-accent/50" />
+            <p className="flex items-center justify-center gap-4 text-[11px] font-semibold uppercase tracking-[0.3em] text-accent">
+              <span aria-hidden="true" className="h-px w-10 bg-accent/60" />
               On the cover
-              <span aria-hidden="true" className="h-px w-10 bg-accent/50" />
+              <span aria-hidden="true" className="h-px w-10 bg-accent/60" />
             </p>
-            <h2 className="mt-6 font-display text-4xl leading-tight tracking-tight text-foreground sm:text-5xl">
-              Three words from <span className="italic text-accent">early readers</span>
+            <h2 className="mt-6 font-display font-light text-4xl leading-[1.08] tracking-[-0.01em] text-foreground sm:text-5xl">
+              Three words from <span className="italic">early readers</span>
             </h2>
           </Reveal>
 
-          <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-3">
+          <div className="mt-14 grid grid-cols-1 divide-y divide-border border-y border-border sm:grid-cols-3 sm:divide-x sm:divide-y-0">
             {blurbs.map((b, i) => (
               <Reveal key={b.author} delay={0.08 * i}>
-                <div className="group h-full rounded-[2rem] border border-border bg-card px-8 py-10 text-center transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-luxe">
-                  <p className="font-display text-4xl italic text-foreground sm:text-5xl">
+                <div className="px-6 py-10 text-center">
+                  <p className="font-display text-4xl font-light italic text-foreground sm:text-5xl">
                     &ldquo;{b.word}&rdquo;
                   </p>
-                  <p className="mt-4 text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+                  <p className="mt-4 text-[10px] font-semibold uppercase tracking-[0.26em] text-muted-foreground">
                     {b.author}
                   </p>
                 </div>
@@ -123,11 +109,11 @@ export function PraiseContent() {
           <Reveal delay={0.16} className="mt-14 flex justify-center">
             <Link
               href="/book"
-              className="group inline-flex items-center gap-2.5 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:shadow-[0_18px_40px_-12px_oklch(0.35_0.04_60/0.5)]"
+              className="group inline-flex items-center gap-2.5 bg-primary px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-foreground transition-colors duration-300 hover:bg-accent hover:text-accent-foreground"
             >
               Explore the book
               <ArrowRight
-                className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5"
+                className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1"
                 aria-hidden="true"
               />
             </Link>

@@ -2,27 +2,27 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Globe2, PenLine, Stethoscope, BookOpen } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Reveal } from "./reveal";
 
 const facts = [
   {
-    icon: Stethoscope,
+    num: "I",
     title: "Physician",
     text: "A practising medical doctor, navigating residency on one side of the sea and Lagos roots on the other.",
   },
   {
-    icon: PenLine,
+    num: "II",
     title: "Storyteller",
     text: "Writes with the certainty of a clinician's chart and the pulse of someone who has listened to a thousand stories.",
   },
   {
-    icon: Globe2,
+    num: "III",
     title: "Between worlds",
     text: "His fiction documents the British pastoral as much as it divulges the perils of Lagos living.",
   },
   {
-    icon: BookOpen,
+    num: "IV",
     title: "Debut novelist",
     text: "British Natasha and the Ashewo Doctor marks his first novel — a four-part, 235-page love letter to messy humanity.",
   },
@@ -31,12 +31,12 @@ const facts = [
 export function AboutContent() {
   return (
     <section className="relative py-20 md:py-28">
-      <div className="mx-auto max-w-6xl px-5 md:px-8">
-        <div className="grid grid-cols-1 items-start gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
-          {/* Portrait + quote card */}
+      <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+        <div className="grid grid-cols-1 items-start gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+          {/* Portrait */}
           <Reveal className="relative mx-auto w-full max-w-md lg:mx-0 lg:sticky lg:top-28">
-            <div className="grain relative overflow-hidden rounded-[2rem] border border-border bg-card shadow-luxe">
-              <div className="relative aspect-square w-full">
+            <figure>
+              <div className="relative aspect-square w-full overflow-hidden border border-foreground/15">
                 <Image
                   src="/images/james-portrait.jpg"
                   alt="James Edeoghon smiling, wearing glasses and a beanie"
@@ -45,36 +45,30 @@ export function AboutContent() {
                   className="object-cover"
                   priority
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-foreground/30 via-transparent to-transparent" />
               </div>
-              <div className="absolute inset-x-0 bottom-0 p-6">
-                <p className="font-display text-lg italic leading-snug text-[oklch(0.98_0.005_84)]">
-                  “Being inside his prose is like being in a medical textbook,
-                  a hospital cafeteria, an exam hall.”
-                </p>
-                <p className="mt-2 text-[11px] uppercase tracking-[0.22em] text-[oklch(0.98_0.005_84/0.75)]">
-                  Pulse Nigeria — Book Review, 2026
-                </p>
-              </div>
-            </div>
-            <div
-              aria-hidden="true"
-              className="absolute -right-5 -top-5 -z-10 h-full w-full rounded-[2rem] border border-accent/25"
-            />
+              <figcaption className="mt-4 flex items-baseline justify-between gap-4 border-t border-border pt-4">
+                <span className="text-[10px] font-semibold uppercase tracking-[0.26em] text-muted-foreground">
+                  James Edeoghon
+                </span>
+                <span className="text-[10px] font-semibold uppercase tracking-[0.26em] text-muted-foreground">
+                  Reading UK &amp; Lagos
+                </span>
+              </figcaption>
+            </figure>
           </Reveal>
 
           {/* Copy */}
           <div>
             <Reveal>
-              <h2 className="font-display text-4xl leading-tight tracking-tight text-foreground sm:text-5xl">
+              <h2 className="font-display font-light text-4xl leading-[1.1] tracking-[-0.01em] text-foreground sm:text-5xl">
                 A doctor who listens{" "}
-                <span className="italic text-accent">for the story</span>{" "}
-                behind every chart
+                <span className="italic">for the story</span> behind every
+                chart
               </h2>
             </Reveal>
 
             <Reveal delay={0.08}>
-              <div className="mt-8 space-y-6 text-base leading-relaxed text-muted-foreground">
+              <div className="mt-8 space-y-6 text-[15px] leading-7 text-muted-foreground sm:text-base">
                 <p>
                   James Edeoghon grew up in Nigeria and works as a medical
                   doctor — a day job that seeps into his fiction in the most
@@ -106,11 +100,12 @@ export function AboutContent() {
             </Reveal>
 
             <Reveal delay={0.12}>
-              <blockquote className="mt-10 rounded-2xl border-l-2 border-accent bg-card/70 py-5 pl-6 pr-5 font-display text-xl italic leading-relaxed text-foreground/90">
-                “James Edeoghon is a smart writer. He provides us with inside
-                information on the journey to UK consultancy as well as he
-                details the dark side of enslavement to the flesh.”
-                <footer className="mt-3 text-[11px] uppercase not-italic tracking-[0.22em] text-muted-foreground">
+              <blockquote className="mt-10 border-l-2 border-accent py-1 pl-6 font-display text-xl italic leading-relaxed text-foreground/90">
+                &ldquo;James Edeoghon is a smart writer. He provides us with
+                inside information on the journey to UK consultancy as well
+                as he details the dark side of enslavement to the
+                flesh.&rdquo;
+                <footer className="mt-3 text-[10px] font-semibold uppercase not-italic tracking-[0.26em] text-muted-foreground">
                   — Pulse Nigeria, October 2026
                 </footer>
               </blockquote>
@@ -118,45 +113,50 @@ export function AboutContent() {
           </div>
         </div>
 
-        {/* Facts grid */}
-        <div className="mt-20 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:mt-24 lg:grid-cols-4">
-          {facts.map((f, i) => (
-            <Reveal key={f.title} delay={0.08 * i}>
-              <div className="group h-full rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-luxe">
-                <f.icon
-                  className="mb-4 h-5 w-5 text-accent"
-                  aria-hidden="true"
-                />
-                <h3 className="font-display text-xl text-foreground">
-                  {f.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {f.text}
-                </p>
-              </div>
-            </Reveal>
-          ))}
+        {/* Facts — ruled index */}
+        <div className="mt-20 border-b border-border md:mt-24">
+          <div className="grid grid-cols-1 gap-x-16 md:grid-cols-2">
+            {facts.map((f, i) => (
+              <Reveal key={f.title} delay={0.06 * i}>
+                <div className="border-t border-border py-7">
+                  <p className="flex items-baseline gap-4">
+                    <span
+                      aria-hidden="true"
+                      className="font-display text-sm italic text-accent"
+                    >
+                      {f.num}
+                    </span>
+                    <span className="font-display text-xl text-foreground">
+                      {f.title}
+                    </span>
+                  </p>
+                  <p className="mt-2.5 pl-9 text-sm leading-relaxed text-muted-foreground">
+                    {f.text}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
 
         {/* CTA strip */}
         <Reveal delay={0.1}>
-          <div className="mt-20 flex flex-col items-center justify-between gap-6 rounded-[2rem] border border-border bg-secondary/50 px-8 py-10 text-center sm:flex-row sm:text-left">
+          <div className="mt-16 flex flex-col items-start justify-between gap-6 border-y border-border py-9 sm:flex-row sm:items-center">
             <div>
-              <p className="font-display text-2xl text-foreground sm:text-3xl">
-                Curious about{" "}
-                <span className="italic text-accent">the book itself?</span>
+              <p className="font-display text-2xl font-light text-foreground sm:text-3xl">
+                Curious about <span className="italic">the book itself?</span>
               </p>
-              <p className="mt-2 text-sm text-muted-foreground">
+              <p className="mt-1.5 text-sm text-muted-foreground">
                 Synopsis, reviews and where to find your copy.
               </p>
             </div>
             <Link
               href="/book"
-              className="group inline-flex shrink-0 items-center gap-2.5 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:shadow-[0_18px_40px_-12px_oklch(0.35_0.04_60/0.5)]"
+              className="group inline-flex shrink-0 items-center gap-2.5 bg-primary px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-foreground transition-colors duration-300 hover:bg-accent hover:text-accent-foreground"
             >
               Explore the book
               <ArrowRight
-                className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5"
+                className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1"
                 aria-hidden="true"
               />
             </Link>

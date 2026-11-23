@@ -1,5 +1,3 @@
-import { Star } from "lucide-react";
-
 const praise = [
   { quote: "Captivating", source: "Sarah Haluwa" },
   { quote: "Sizzling", source: "Tomilola Coco Adeyemo" },
@@ -14,27 +12,20 @@ export function PraiseMarquee() {
   return (
     <section
       aria-label="Early praise"
-      className="marquee-mask relative border-y border-border/80 bg-secondary/50 py-6"
+      className="marquee-mask relative overflow-hidden border-b border-border py-5"
     >
-      <div className="flex w-max animate-marquee items-center gap-10 whitespace-nowrap px-5">
+      <div className="flex w-max animate-marquee items-center gap-12 whitespace-nowrap px-5">
         {items.map((item, i) => (
-          <div key={i} className="flex items-center gap-10">
-            <div className="flex items-center gap-3">
-              <Star
-                className="h-3.5 w-3.5 shrink-0 fill-accent/60 text-accent/60"
-                aria-hidden="true"
-              />
-              <span className="font-display text-lg italic text-foreground/90 sm:text-xl">
-                “{item.quote}”
+          <div key={i} className="flex items-center gap-12">
+            <p className="flex items-baseline gap-3">
+              <span className="font-display text-base italic text-foreground/85 sm:text-lg">
+                &ldquo;{item.quote}&rdquo;
               </span>
-              <span className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-                — {item.source}
+              <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                {item.source}
               </span>
-            </div>
-            <span
-              aria-hidden="true"
-              className="h-1.5 w-1.5 rotate-45 bg-teal/40"
-            />
+            </p>
+            <span aria-hidden="true" className="h-3 w-px bg-border" />
           </div>
         ))}
       </div>

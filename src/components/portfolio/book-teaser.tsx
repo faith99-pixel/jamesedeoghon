@@ -2,39 +2,41 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CalendarDays, FileText, MapPin } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Reveal } from "./reveal";
 
-const facts = [
-  { icon: FileText, value: "235 pages, four parts" },
-  { icon: MapPin, value: "Reading, UK · Lagos" },
-  { icon: CalendarDays, value: "October 2026" },
-];
+const facts = ["235 pages · four parts", "Reading, UK & Lagos", "October 2026"];
 
 export function BookTeaser() {
   return (
-    <section className="grain relative overflow-hidden border-y border-border/70 bg-secondary/40 py-24 md:py-32">
-      <div className="relative z-10 mx-auto max-w-6xl px-5 md:px-8">
-        <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+    <section className="bg-ink text-[oklch(0.93_0.012_84)]">
+      <div className="mx-auto max-w-[1200px] px-6 py-20 md:px-10 md:py-28">
+        <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
           {/* Copy */}
           <div className="order-2 lg:order-1">
             <Reveal>
-              <p className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.3em] text-accent">
-                <span className="font-display text-sm italic normal-case tracking-normal text-muted-foreground/70">
+              <p className="flex items-center gap-4 text-[11px] font-semibold uppercase tracking-[0.3em] text-[oklch(0.72_0.1_75)]">
+                <span
+                  aria-hidden="true"
+                  className="h-px w-10 bg-[oklch(0.72_0.1_75/0.5)]"
+                />
+                The debut novel
+                <span
+                  aria-hidden="true"
+                  className="font-display text-sm font-light italic normal-case tracking-normal text-[oklch(0.93_0.012_84/0.5)]"
+                >
                   02
                 </span>
-                <span aria-hidden="true" className="h-px w-10 bg-accent/50" />
-                The debut novel
               </p>
-              <h2 className="mt-6 font-display text-4xl leading-tight tracking-tight text-foreground sm:text-5xl">
+              <h2 className="mt-6 max-w-xl font-display font-light text-4xl leading-[1.08] tracking-[-0.01em] text-[oklch(0.93_0.012_84)] sm:text-5xl">
                 British Natasha{" "}
-                <span className="italic text-accent">&amp;</span> the Ashewo
-                Doctor
+                <span className="italic text-[oklch(0.72_0.1_75)]">&amp;</span>{" "}
+                the Ashewo Doctor
               </h2>
             </Reveal>
 
             <Reveal delay={0.1}>
-              <p className="mt-7 max-w-xl text-base leading-relaxed text-muted-foreground">
+              <p className="mt-7 max-w-xl text-[15px] leading-7 text-[oklch(0.93_0.012_84/0.65)] sm:text-base">
                 A story of love, desire, migration, identity and difficult
                 choices — told through the complicated relationship between a
                 Nigerian doctor in a UK residency programme and a British
@@ -44,28 +46,22 @@ export function BookTeaser() {
             </Reveal>
 
             <Reveal delay={0.14}>
-              <div className="mt-7 flex flex-wrap gap-x-7 gap-y-3">
+              <p className="mt-7 flex flex-wrap gap-x-7 gap-y-2 text-[11px] font-medium uppercase tracking-[0.2em] text-[oklch(0.93_0.012_84/0.5)]">
                 {facts.map((f) => (
-                  <span
-                    key={f.value}
-                    className="inline-flex items-center gap-2 text-sm text-muted-foreground"
-                  >
-                    <f.icon className="h-4 w-4 text-accent" aria-hidden="true" />
-                    {f.value}
-                  </span>
+                  <span key={f}>{f}</span>
                 ))}
-              </div>
+              </p>
             </Reveal>
 
             <Reveal delay={0.18}>
-              <div className="mt-9 flex flex-wrap items-center gap-5">
+              <div className="mt-10 flex flex-wrap items-center gap-6">
                 <Link
                   href="/book"
-                  className="group inline-flex items-center gap-2.5 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:shadow-[0_18px_40px_-12px_oklch(0.35_0.04_60/0.5)]"
+                  className="group inline-flex items-center gap-2.5 border border-[oklch(0.93_0.012_84/0.4)] px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-[oklch(0.93_0.012_84)] transition-colors duration-300 hover:bg-[oklch(0.93_0.012_84)] hover:text-ink"
                 >
                   Explore the book
                   <ArrowRight
-                    className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5"
+                    className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1"
                     aria-hidden="true"
                   />
                 </Link>
@@ -73,7 +69,7 @@ export function BookTeaser() {
                   href="https://www.pulse.ng/story/british-natasha-and-the-ashewo-doctor-review-2026100915225947559"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="link-sweep text-sm font-medium text-muted-foreground transition-colors hover:text-accent"
+                  className="link-sweep text-[11px] font-semibold uppercase tracking-[0.22em] text-[oklch(0.93_0.012_84/0.55)] transition-colors hover:text-[oklch(0.93_0.012_84)]"
                 >
                   Read the Pulse review
                 </a>
@@ -83,10 +79,10 @@ export function BookTeaser() {
 
           {/* Cover */}
           <Reveal className="order-1 lg:order-2">
-            <div className="relative mx-auto w-full max-w-sm">
+            <div className="relative mx-auto w-full max-w-[340px]">
               <div className="book-scene">
                 <div className="book-3d relative aspect-[3/4] w-full">
-                  <div className="absolute inset-0 overflow-hidden rounded-r-2xl rounded-l-lg border border-border bg-card shadow-luxe-lg">
+                  <div className="absolute inset-0 overflow-hidden rounded-r-lg rounded-l-sm border border-[oklch(0.93_0.012_84/0.15)] shadow-luxe-lg">
                     <Image
                       src="/images/book-cover.jpg"
                       alt="Cover of British Natasha and the Ashewo Doctor — an illustration of a couple in an intimate embrace"
@@ -99,10 +95,6 @@ export function BookTeaser() {
                   </div>
                 </div>
               </div>
-              <div
-                aria-hidden="true"
-                className="absolute -inset-10 -z-10 rounded-full bg-accent/10 blur-3xl"
-              />
             </div>
           </Reveal>
         </div>

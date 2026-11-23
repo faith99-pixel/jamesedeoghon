@@ -17,7 +17,7 @@ export default function PraisePage() {
         title={
           <>
             Kind words{" "}
-            <span className="italic text-accent">&amp;</span> critical
+            <span className="italic">&amp;</span> critical
             acclaim
           </>
         }

@@ -16,7 +16,7 @@ export default function ContactPage() {
         kicker="Contact"
         title={
           <>
-            Say <span className="italic text-accent">hello</span>
+            Say <span className="italic">hello</span>
           </>
         }
         description="For official enquiries, interviews, features and speaking engagements — or simply to share your thoughts on the book."

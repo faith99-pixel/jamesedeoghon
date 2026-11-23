@@ -16,7 +16,7 @@ export default function EventsPage() {
         kicker="Events"
         title={
           <>
-            Readings <span className="italic text-accent">&amp;</span>{" "}
+            Readings <span className="italic">&amp;</span>{" "}
             signings
           </>
         }

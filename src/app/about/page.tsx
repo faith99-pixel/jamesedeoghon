@@ -16,7 +16,7 @@ export default function AboutPage() {
         kicker="About the author"
         title={
           <>
-            The man behind <span className="italic text-accent">the pen</span>{" "}
+            The man behind <span className="italic">the pen</span>{" "}
             and the stethoscope
           </>
         }
