@@ -12,7 +12,7 @@ export default function ContactPage() {
   return (
     <>
       <PageHeader
-        index="04"
+        index="05"
         kicker="Contact"
         title={
           <>

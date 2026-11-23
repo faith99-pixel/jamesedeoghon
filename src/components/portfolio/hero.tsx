@@ -48,7 +48,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease }}
-            className="font-display text-[2.9rem] leading-[1.04] tracking-tight text-foreground sm:text-6xl lg:text-7xl"
+            className="font-display font-light text-[2.9rem] leading-[1.04] tracking-tight text-foreground sm:text-6xl lg:text-7xl"
           >
             Doctor by <span className="italic text-accent">profession.</span>
             <br />
@@ -61,7 +61,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.2, ease }}
             className="mt-7 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg"
           >
-            <span className="font-display text-xl italic text-foreground sm:text-2xl">
+            <span className="font-display text-xl font-light italic text-foreground sm:text-2xl">
               James Edeoghon
             </span>{" "}
             is a medical doctor and writer whose debut novel,{" "}

@@ -12,7 +12,7 @@ export default function EventsPage() {
   return (
     <>
       <PageHeader
-        index="03"
+        index="04"
         kicker="Events"
         title={
           <>

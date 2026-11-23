@@ -1,25 +1,15 @@
 import type { Metadata } from "next";
-import { Fraunces, Geist, Geist_Mono } from "next/font/google";
+import { Josefin_Sans } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { Nav } from "@/components/portfolio/nav";
 import { Footer } from "@/components/portfolio/footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+const josefin = Josefin_Sans({
+  variable: "--font-josefin",
   subsets: ["latin"],
   style: ["normal", "italic"],
-  axes: ["opsz"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -61,7 +51,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} antialiased bg-background text-foreground`}
+        className={`${josefin.variable} font-sans antialiased bg-background text-foreground`}
       >
         <div className="flex min-h-screen flex-col overflow-x-clip">
           <Nav />

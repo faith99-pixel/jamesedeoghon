@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { Instagram, Loader2, Mail, Send, Twitter } from "lucide-react";
+import { Instagram, Mail, MailCheck, Send } from "lucide-react";
 import { Reveal } from "./reveal";
 import { useToast } from "@/hooks/use-toast";
 
 const subjects = ["General enquiry", "Book purchase", "Press & media", "Literary agent"];
+
+const CONTACT_EMAIL = "jamesedeoghon@gmail.com";
 
 export function ContactContent() {
   const [form, setForm] = useState({
@@ -14,46 +16,73 @@ export function ContactContent() {
     subject: subjects[0],
     message: "",
   });
-  const [loading, setLoading] = useState(false);
+  const [sent, setSent] = useState(false);
   const { toast } = useToast();
 
   function update(field: keyof typeof form, value: string) {
     setForm((f) => ({ ...f, [field]: value }));
   }
 
-  async function onSubmit(e: React.FormEvent) {
+  function buildMailto(): string {
+    const subject = `${form.subject} — via James Edeoghon website`;
+    const body = [
+      `Hello James,`,
+      ``,
+      form.message.trim(),
+      ``,
+      `—`,
+      `Name: ${form.name.trim()}`,
+      `Email: ${form.email.trim()}`,
+      `Sent from the website contact form`,
+    ].join("\n");
+    return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+  }
+
+  function onSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (loading) return;
-    setLoading(true);
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      const data = await res.json();
-      if (!res.ok) {
-        toast({
-          title: "Message not sent",
-          description: data.error ?? "Please try again.",
-          variant: "destructive",
-        });
-      } else {
-        toast({
-          title: "Message sent",
-          description: "Thank you for reaching out — James will get back to you soon.",
-        });
-        setForm({ name: "", email: "", subject: subjects[0], message: "" });
-      }
-    } catch {
+
+    if (form.name.trim().length < 2) {
       toast({
-        title: "Connection problem",
-        description: "Please check your network and try again.",
+        title: "Almost there",
+        description: "Please tell us your name.",
         variant: "destructive",
       });
-    } finally {
-      setLoading(false);
+      return;
     }
+    if (!/^\S+@\S+\.\S+$/.test(form.email.trim())) {
+      toast({
+        title: "Almost there",
+        description: "Please provide a valid email address.",
+        variant: "destructive",
+      });
+      return;
+    }
+    if (form.message.trim().length < 10) {
+      toast({
+        title: "Almost there",
+        description: "Please write a short message (at least 10 characters).",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Keep a copy of the message on record (best effort, never blocks the email)
+    fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    }).catch(() => {});
+
+    // Open the visitor's email app with everything pre-filled for James
+    window.location.href = buildMailto();
+
+    toast({
+      title: "Opening your email app…",
+      description: `Your message is pre-filled and addressed to ${CONTACT_EMAIL}.`,
+    });
+    setSent(true);
   }
 
   const inputClass =
@@ -72,15 +101,15 @@ export function ContactContent() {
               <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground">
                 For official enquiries regarding the book, interviews,
                 features or speaking engagements — or simply to share what
-                Leonard and Natasha's story meant to you — drop a line below
-                or reach out directly.
+                Leonard and Natasha&apos;s story meant to you — drop a line
+                below or reach out directly.
               </p>
             </Reveal>
 
             <Reveal delay={0.1}>
               <div className="mt-9 space-y-4">
                 <a
-                  href="mailto:hello@jamesedeoghon.com"
+                  href={`mailto:${CONTACT_EMAIL}`}
                   className="group flex items-center gap-4 rounded-2xl border border-border bg-card p-5 transition-all duration-300 hover:border-accent/40 hover:shadow-luxe"
                 >
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-accent/25 bg-accent/[0.07] text-accent transition-colors group-hover:bg-accent/[0.12]">
@@ -91,46 +120,29 @@ export function ContactContent() {
                       Email
                     </span>
                     <span className="text-sm text-foreground">
-                      hello@jamesedeoghon.com
+                      {CONTACT_EMAIL}
                     </span>
                   </span>
                 </a>
-                <div className="flex gap-4">
-                  <a
-                    href="https://instagram.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="James Edeoghon on Instagram"
-                    className="group flex flex-1 items-center gap-4 rounded-2xl border border-border bg-card p-5 transition-all duration-300 hover:border-accent/40 hover:shadow-luxe"
-                  >
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-teal/30 bg-teal/[0.07] text-teal transition-colors group-hover:bg-teal/[0.12]">
-                      <Instagram className="h-5 w-5" aria-hidden="true" />
+                <a
+                  href="https://instagram.com/novelistjames"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="James Edeoghon (@novelistjames) on Instagram"
+                  className="group flex items-center gap-4 rounded-2xl border border-border bg-card p-5 transition-all duration-300 hover:border-accent/40 hover:shadow-luxe"
+                >
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-accent/25 bg-accent/[0.07] text-accent transition-colors group-hover:bg-accent/[0.12]">
+                    <Instagram className="h-5 w-5" aria-hidden="true" />
+                  </span>
+                  <span>
+                    <span className="block text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                      Instagram
                     </span>
-                    <span>
-                      <span className="block text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                        Instagram
-                      </span>
-                      <span className="text-sm text-foreground">@jamesedeoghon</span>
+                    <span className="text-sm text-foreground">
+                      @novelistjames — follow for behind-the-book moments
                     </span>
-                  </a>
-                  <a
-                    href="https://x.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="James Edeoghon on X (Twitter)"
-                    className="group flex flex-1 items-center gap-4 rounded-2xl border border-border bg-card p-5 transition-all duration-300 hover:border-accent/40 hover:shadow-luxe"
-                  >
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-accent/25 bg-accent/[0.07] text-accent transition-colors group-hover:bg-accent/[0.12]">
-                      <Twitter className="h-5 w-5" aria-hidden="true" />
-                    </span>
-                    <span>
-                      <span className="block text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                        X / Twitter
-                      </span>
-                      <span className="text-sm text-foreground">@jamesedeoghon</span>
-                    </span>
-                  </a>
-                </div>
+                  </span>
+                </a>
               </div>
             </Reveal>
           </div>
@@ -203,16 +215,45 @@ export function ContactContent() {
               </div>
               <button
                 type="submit"
-                disabled={loading}
-                className="mt-6 inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-primary text-sm font-semibold text-primary-foreground transition-all duration-300 hover:shadow-[0_18px_40px_-12px_oklch(0.35_0.04_60/0.5)] disabled:opacity-70 sm:w-auto sm:px-10"
+                className="mt-6 inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-primary text-sm font-semibold text-primary-foreground transition-all duration-300 hover:shadow-[0_18px_40px_-12px_oklch(0.35_0.04_60/0.5)] sm:w-auto sm:px-10"
               >
-                {loading ? (
-                  <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
-                ) : (
-                  <Send className="h-4 w-4" aria-hidden="true" />
-                )}
-                {loading ? "Sending…" : "Send message"}
+                <Send className="h-4 w-4" aria-hidden="true" />
+                Send via email
               </button>
+              <p className="mt-4 text-xs leading-relaxed text-muted-foreground/90">
+                Sending opens your email app with the message pre-filled and
+                addressed to James at{" "}
+                <a
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  className="text-accent underline underline-offset-2"
+                >
+                  {CONTACT_EMAIL}
+                </a>
+                .
+              </p>
+
+              {sent && (
+                <div
+                  role="status"
+                  className="mt-6 flex items-start gap-3 rounded-2xl border border-accent/30 bg-accent/[0.07] p-4"
+                >
+                  <MailCheck
+                    className="mt-0.5 h-5 w-5 shrink-0 text-accent"
+                    aria-hidden="true"
+                  />
+                  <p className="text-sm leading-relaxed text-foreground/90">
+                    Your email app should be opening now. If nothing happened,
+                    write to James directly at{" "}
+                    <a
+                      href={`mailto:${CONTACT_EMAIL}`}
+                      className="font-medium text-accent underline underline-offset-2"
+                    >
+                      {CONTACT_EMAIL}
+                    </a>
+                    .
+                  </p>
+                </div>
+              )}
             </form>
           </Reveal>
         </div>

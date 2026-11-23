@@ -225,14 +225,22 @@ export function BookContent() {
           </div>
 
           <Reveal delay={0.2} className="mt-8 text-center">
-            <a
-              href="https://www.pulse.ng/story/british-natasha-and-the-ashewo-doctor-review-2026100915225947559"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="link-sweep inline-block text-sm text-muted-foreground transition-colors hover:text-accent"
-            >
-              Read the full review on Pulse Nigeria →
-            </a>
+            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+              <Link
+                href="/praise"
+                className="link-sweep inline-block text-sm text-muted-foreground transition-colors hover:text-accent"
+              >
+                See all praise →
+              </Link>
+              <a
+                href="https://www.pulse.ng/story/british-natasha-and-the-ashewo-doctor-review-2026100915225947559"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-sweep inline-block text-sm text-muted-foreground transition-colors hover:text-accent"
+              >
+                Read the full review on Pulse Nigeria →
+              </a>
+            </div>
           </Reveal>
         </div>
       </section>
