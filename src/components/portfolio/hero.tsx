@@ -53,9 +53,9 @@ export function Hero() {
             medical doctor and writer whose debut novel,{" "}
             <em className="text-foreground/90">
               British Natasha and the Ashewo Doctor
-            </em>
-            , turns love, migration and difficult choices into fiction that
-            lingers long after the last page.
+            </em>{" "}
+            turns love, migration and difficult choices into fiction that
+            lingers after the last page.
           </motion.p>
 
           <motion.div

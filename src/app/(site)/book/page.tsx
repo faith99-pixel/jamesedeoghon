@@ -20,7 +20,7 @@ export default function BookPage() {
             Doctor
           </>
         }
-        description="A story of love, desire, migration, identity and difficult choices — told through the complicated relationship between a Nigerian doctor and a British single mother."
+        description="A story of love, desire, migration, identity and difficult choices — told through the complicated relationship between a Nigerian doctor and a British nurse assistant."
       />
       <BookContent />
     </>

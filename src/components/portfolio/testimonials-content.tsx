@@ -4,23 +4,42 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Reveal } from "./reveal";
 import { TestimonialMarquee } from "./testimonial-marquee";
+import {
+  CULTURE_CUSTODIAN_URL,
+  GOODREADS_BOOK_URL,
+  PULSE_REVIEW_URL,
+} from "@/lib/links";
 
 const quotes = [
   {
     text: "This novel plays with plot like a pilot might play on a plane on autopilot, and provides dialogue that seems to be happening right in front of you.",
     highlight: "dialogue that seems to be happening right in front of you",
+    source: "Pulse Nigeria — Book Review, October 2026",
   },
   {
     text: "James Edeoghon is a smart writer. He provides us with inside information on the journey to UK consultancy as well as he details the dark side of enslavement to the flesh.",
     highlight: "James Edeoghon is a smart writer",
+    source: "Pulse Nigeria — Book Review, October 2026",
   },
   {
     text: "Being inside his prose is like being in a medical textbook, a hospital cafeteria, an exam hall.",
     highlight: "a medical textbook, a hospital cafeteria, an exam hall",
+    source: "Pulse Nigeria — Book Review, October 2026",
   },
   {
     text: "We see what is left of our humanity when we're confronted with difficult choices.",
     highlight: "what is left of our humanity",
+    source: "Pulse Nigeria — Book Review, October 2026",
+  },
+  {
+    text: "For a first novel, this is a confident and mischievous debut. Edeoghon says he is fascinated by how desire directs destinies, and this book puts that fascination to the test.",
+    highlight: "a confident and mischievous debut",
+    source: "The Culture Custodian — October 2026",
+  },
+  {
+    text: "i read this book in 5 hours, which is quite unusual for me because i am always between books. this one, however, i gave my full attention till the end. i enjoyed the writing and pacing so very much. i have said somewhere else that this was a spectacular debut and i stand by that.",
+    highlight: "a spectacular debut",
+    source: "Ikenna Okpara — Goodreads review",
   },
 ];
 
@@ -55,7 +74,7 @@ export function TestimonialsContent() {
                         className="h-px w-10 bg-gradient-to-r from-accent/60 to-transparent"
                       />
                       <span className="text-[10px] font-semibold uppercase tracking-[0.26em] text-muted-foreground">
-                        Pulse Nigeria — Book Review, October 2026
+                        {q.source}
                       </span>
                     </figcaption>
                   </figure>
@@ -65,14 +84,32 @@ export function TestimonialsContent() {
           </div>
 
           <Reveal delay={0.1} className="mt-4 text-center">
-            <a
-              href="https://www.pulse.ng/story/british-natasha-and-the-ashewo-doctor-review-2026100915225947559"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="link-sweep inline-block text-[11px] font-semibold uppercase tracking-[0.24em] text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Read the full review on Pulse Nigeria
-            </a>
+            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+              <a
+                href={PULSE_REVIEW_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-sweep text-[11px] font-semibold uppercase tracking-[0.24em] text-muted-foreground transition-colors hover:text-foreground"
+              >
+                Read the full review on Pulse Nigeria
+              </a>
+              <a
+                href={CULTURE_CUSTODIAN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-sweep text-[11px] font-semibold uppercase tracking-[0.24em] text-muted-foreground transition-colors hover:text-foreground"
+              >
+                Read the Culture Custodian feature
+              </a>
+              <a
+                href={GOODREADS_BOOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-sweep text-[11px] font-semibold uppercase tracking-[0.24em] text-muted-foreground transition-colors hover:text-foreground"
+              >
+                Read reader reviews on Goodreads
+              </a>
+            </div>
           </Reveal>
         </div>
       </section>

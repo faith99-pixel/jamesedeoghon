@@ -80,8 +80,8 @@ export function AboutContent() {
                     British Natasha and the Ashewo Doctor
                   </em>
                   , follows Leonard, a Nigerian doctor in a UK residency
-                  programme, and Natasha, a British nurse assistant and
-                  single mum of one, through a riotously sexual affair that
+                  programme, and Natasha, a British nurse assistant, through
+                  a riotously sexual affair that
                   morphs into the semblance of a relationship. Set in Reading
                   with a brief stint in Lagos, the novel documents the
                   British pastoral as much as it divulges the perils of Lagos

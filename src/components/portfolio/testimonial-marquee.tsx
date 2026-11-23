@@ -4,7 +4,9 @@ const testimonials = [
   { quote: "Intense", source: "Deborah Kira" },
   { quote: "A smart writer", source: "Pulse Nigeria" },
   { quote: "Dialogue happening right in front of you", source: "Pulse Nigeria" },
-  { quote: "Out in October 2026", source: "Debut novel" },
+  { quote: "A confident and mischievous debut", source: "The Culture Custodian" },
+  { quote: "A spectacular debut", source: "Ikenna Okpara, Goodreads" },
+  { quote: "Out now", source: "Masobe Books" },
 ];
 
 export function TestimonialMarquee() {

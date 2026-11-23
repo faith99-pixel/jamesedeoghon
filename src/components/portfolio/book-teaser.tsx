@@ -32,7 +32,7 @@ export function BookTeaser() {
                 A story of love, desire, migration, identity and difficult
                 choices — told through the complicated relationship between a
                 Nigerian doctor in a UK residency programme and a British
-                single mother. Narrated with the certainty of time-stamped
+                nurse assistant. Narrated with the certainty of time-stamped
                 messages, it builds towards an ending waiting in disguise.
               </p>
             </Reveal>

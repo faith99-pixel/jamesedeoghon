@@ -54,14 +54,11 @@ export function AboutTeaser() {
                 doctor — a day job that seeps into his fiction in the most
                 delicious ways. His debut novel follows Leonard, a Nigerian
                 doctor in a UK residency programme, and Natasha, a British
-                nurse assistant and single mother, through a riotously
-                complicated affair.
+                nurse assistant, through a riotously complicated affair.
               </p>
               <p className="mt-5 max-w-xl text-[15px] leading-7 text-muted-foreground sm:text-base">
                 For James, fiction is not about rejecting stereotypes but
-                turning them into art forms that make you ponder — a
-                philosophy Pulse Nigeria describes as a story of love,
-                desire, migration, identity and difficult choices.
+                turning them into art forms that make you ponder.
               </p>
             </Reveal>
 
