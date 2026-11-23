@@ -10,32 +10,14 @@ const ease = [0.22, 1, 0.36, 1] as const;
 export function Hero() {
   return (
     <section className="relative border-b border-border">
-      {/* Decorative vertical text */}
-      <span
-        aria-hidden="true"
-        className="writing-vertical absolute left-5 top-1/2 hidden -translate-y-1/2 text-[10px] font-medium uppercase tracking-[0.5em] text-muted-foreground/40 lg:block"
-      >
-        The Writing Doctor — Lagos to Reading
-      </span>
-
       <div className="mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-14 px-6 pb-16 pt-28 md:px-10 md:pb-24 md:pt-36 lg:grid-cols-[1.08fr_0.92fr] lg:gap-10">
         {/* Copy */}
         <div className="order-2 lg:order-1">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease }}
-            className="flex items-center gap-4 text-[11px] font-semibold uppercase tracking-[0.3em] text-accent"
-          >
-            <span aria-hidden="true" className="h-px w-10 bg-accent/60" />
-            Debut novel — out now
-          </motion.p>
-
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease }}
-            className="mt-8 font-display font-light text-[2.9rem] leading-[1.04] tracking-[-0.01em] text-foreground sm:text-6xl lg:text-[4.6rem]"
+            className="font-display font-light text-[2.9rem] leading-[1.04] tracking-[-0.01em] text-foreground sm:text-6xl lg:text-[4.6rem]"
           >
             Doctor by <span className="italic">profession.</span>
             <span className="ml-6 inline-block sm:ml-14">
