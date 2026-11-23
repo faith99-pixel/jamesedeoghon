@@ -5,7 +5,7 @@ import { EventsContent } from "@/components/portfolio/events-content";
 export const metadata: Metadata = {
   title: "Events",
   description:
-    "Upcoming readings, signings and festival appearances for James Edeoghon's British Natasha and the Ashewo Doctor. Coming soon.",
+    "Photos from the Abuja book reading at Akara Café, plus upcoming readings, signings and festival appearances for James Edeoghon's British Natasha and the Ashewo Doctor.",
 };
 
 export default function EventsPage() {
@@ -19,7 +19,7 @@ export default function EventsPage() {
             signings
           </>
         }
-        description="Book launches, readings, festivals and virtual conversations — upcoming appearances for British Natasha and the Ashewo Doctor."
+        description="Highlights from the road — starting with the Abuja book reading — plus upcoming appearances for British Natasha and the Ashewo Doctor."
       />
       <EventsContent />
     </>
