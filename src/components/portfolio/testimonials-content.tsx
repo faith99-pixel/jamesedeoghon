@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Reveal } from "./reveal";
-import { PraiseMarquee } from "./praise-marquee";
+import { TestimonialMarquee } from "./testimonial-marquee";
 
 const quotes = [
   {
@@ -30,10 +30,10 @@ const blurbs = [
   { word: "Intense", author: "Deborah Kira" },
 ];
 
-export function PraiseContent() {
+export function TestimonialsContent() {
   return (
     <>
-      <PraiseMarquee />
+      <TestimonialMarquee />
 
       {/* Editorial quotes */}
       <section className="relative py-20 md:py-28">

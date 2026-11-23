@@ -1,5 +1,5 @@
 import { Hero } from "@/components/portfolio/hero";
-import { PraiseMarquee } from "@/components/portfolio/praise-marquee";
+import { TestimonialMarquee } from "@/components/portfolio/testimonial-marquee";
 import { AboutTeaser } from "@/components/portfolio/about-teaser";
 import { BookTeaser } from "@/components/portfolio/book-teaser";
 import { EventsTeaser } from "@/components/portfolio/events-teaser";
@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <PraiseMarquee />
+      <TestimonialMarquee />
       <AboutTeaser />
       <BookTeaser />
       <EventsTeaser />

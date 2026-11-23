@@ -5,8 +5,6 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Reveal } from "./reveal";
 
-const facts = ["235 pages · four parts", "Reading, UK & Lagos", "October 2026"];
-
 export function BookTeaser() {
   return (
     <section className="bg-ink text-[oklch(0.93_0.012_84)]">
@@ -46,14 +44,6 @@ export function BookTeaser() {
             </Reveal>
 
             <Reveal delay={0.14}>
-              <p className="mt-7 flex flex-wrap gap-x-7 gap-y-2 text-[11px] font-medium uppercase tracking-[0.2em] text-[oklch(0.93_0.012_84/0.5)]">
-                {facts.map((f) => (
-                  <span key={f}>{f}</span>
-                ))}
-              </p>
-            </Reveal>
-
-            <Reveal delay={0.18}>
               <div className="mt-10 flex flex-wrap items-center gap-6">
                 <Link
                   href="/book"

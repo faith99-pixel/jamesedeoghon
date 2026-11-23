@@ -82,37 +82,6 @@ export function Hero() {
             </Link>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.55 }}
-            className="mt-14 grid grid-cols-1 gap-5 border-t border-border pt-6 sm:grid-cols-3"
-          >
-            <div>
-              <p className="text-[10px] font-semibold uppercase tracking-[0.26em] text-muted-foreground">
-                Length
-              </p>
-              <p className="mt-1.5 text-sm text-foreground">
-                235 pages · four parts
-              </p>
-            </div>
-            <div>
-              <p className="text-[10px] font-semibold uppercase tracking-[0.26em] text-muted-foreground">
-                Setting
-              </p>
-              <p className="mt-1.5 text-sm text-foreground">
-                Reading, UK &amp; Lagos
-              </p>
-            </div>
-            <div>
-              <p className="text-[10px] font-semibold uppercase tracking-[0.26em] text-muted-foreground">
-                Release
-              </p>
-              <p className="mt-1.5 text-sm text-foreground">
-                First edition — October 2026
-              </p>
-            </div>
-          </motion.div>
         </div>
 
         {/* Portrait */}

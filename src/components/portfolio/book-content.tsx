@@ -5,13 +5,6 @@ import Link from "next/link";
 import { ArrowRight, ShoppingBag } from "lucide-react";
 import { Reveal } from "./reveal";
 
-const meta = [
-  { label: "Length", value: "235 pages" },
-  { label: "Structure", value: "Four parts" },
-  { label: "Setting", value: "Reading, UK · Lagos" },
-  { label: "Released", value: "October 2026" },
-];
-
 const blurbs = [
   { word: "Captivating", author: "Sarah Haluwa" },
   { word: "Sizzling", author: "Tomilola Coco Adeyemo" },
@@ -82,37 +75,21 @@ export function BookContent() {
               </Reveal>
 
               <Reveal delay={0.14}>
-                <p className="mt-8 text-[15px] leading-7 text-muted-foreground sm:text-base">
-                  Leonard, a Nigerian doctor in a UK residency programme,
-                  meets Natasha, a nurse assistant and single mum of one.
-                  What begins as a charged affair deepens into something
-                  neither of them planned — until pregnancy changes the
-                  dynamic of the relationship and both are forced to confront
-                  what is left of their humanity when faced with difficult
-                  choices. A straightforward, linear read with an ending
-                  waiting in disguise.
+                <p className="mt-8 max-w-xl text-[15px] leading-7 text-muted-foreground sm:text-base">
+                  Set between Reading, England and Lagos, the novel follows
+                  Leonard, a Nigerian doctor in a UK residency programme, and
+                  Natasha, a nurse assistant and single mum of one. What begins
+                  as a charged affair deepens into something neither of them
+                  planned — until pregnancy changes the dynamic of the
+                  relationship and both are forced to confront what is left of
+                  their humanity when faced with difficult choices. A
+                  straightforward, linear read with an ending waiting in
+                  disguise.
                 </p>
               </Reveal>
 
-              {/* Meta — ruled list */}
-              <Reveal delay={0.2}>
-                <dl className="mt-10 border-b border-border">
-                  {meta.map((m) => (
-                    <div
-                      key={m.label}
-                      className="flex items-baseline justify-between border-t border-border py-3.5"
-                    >
-                      <dt className="text-[10px] font-semibold uppercase tracking-[0.26em] text-muted-foreground">
-                        {m.label}
-                      </dt>
-                      <dd className="text-sm text-foreground">{m.value}</dd>
-                    </div>
-                  ))}
-                </dl>
-              </Reveal>
-
               {/* Blurbs — ruled columns */}
-              <Reveal delay={0.26}>
+              <Reveal delay={0.2}>
                 <div className="mt-10 grid grid-cols-1 divide-y divide-border border-y border-border sm:grid-cols-3 sm:divide-x sm:divide-y-0">
                   {blurbs.map((b) => (
                     <div key={b.author} className="px-4 py-6 text-center first:pl-0 sm:first:pl-0">
@@ -161,7 +138,7 @@ export function BookContent() {
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="flex items-center justify-center gap-4 text-[11px] font-semibold uppercase tracking-[0.3em] text-accent">
               <span aria-hidden="true" className="h-px w-10 bg-accent/60" />
-              Press &amp; praise
+              Press &amp; acclaim
               <span aria-hidden="true" className="h-px w-10 bg-accent/60" />
             </p>
             <h2 className="mt-6 font-display font-light text-4xl leading-[1.08] tracking-[-0.01em] text-foreground sm:text-5xl">
@@ -198,10 +175,10 @@ export function BookContent() {
           <Reveal delay={0.2} className="mt-6 text-center">
             <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 border-t border-border pt-10">
               <Link
-                href="/praise"
+                href="/testimonials"
                 className="group inline-flex items-center gap-2.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-foreground"
               >
-                <span className="link-sweep">See all praise</span>
+                <span className="link-sweep">See all testimonials</span>
                 <ArrowRight
                   className="h-3.5 w-3.5 text-accent transition-transform duration-300 group-hover:translate-x-1"
                   aria-hidden="true"

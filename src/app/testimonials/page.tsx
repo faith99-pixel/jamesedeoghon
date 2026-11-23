@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/portfolio/page-header";
-import { PraiseContent } from "@/components/portfolio/praise-content";
+import { TestimonialsContent } from "@/components/portfolio/testimonials-content";
 
 export const metadata: Metadata = {
-  title: "Praise",
+  title: "Testimonials",
   description:
-    "Early praise for British Natasha and the Ashewo Doctor — from Pulse Nigeria's review and the cover endorsements by early readers.",
+    "What critics and early readers are saying about British Natasha and the Ashewo Doctor — from Pulse Nigeria's review and the cover endorsements.",
 };
 
-export default function PraisePage() {
+export default function TestimonialsPage() {
   return (
     <>
       <PageHeader
         index="03"
-        kicker="Praise"
+        kicker="Testimonials"
         title={
           <>
             Kind words{" "}
@@ -23,7 +23,7 @@ export default function PraisePage() {
         }
         description="What critics and early readers are saying about James Edeoghon's debut novel, British Natasha and the Ashewo Doctor."
       />
-      <PraiseContent />
+      <TestimonialsContent />
     </>
   );
 }

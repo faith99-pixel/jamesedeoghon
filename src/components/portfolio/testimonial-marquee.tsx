@@ -1,4 +1,4 @@
-const praise = [
+const testimonials = [
   { quote: "Captivating", source: "Sarah Haluwa" },
   { quote: "Sizzling", source: "Tomilola Coco Adeyemo" },
   { quote: "Intense", source: "Deborah Kira" },
@@ -7,11 +7,11 @@ const praise = [
   { quote: "Out in October 2026", source: "Debut novel" },
 ];
 
-export function PraiseMarquee() {
-  const items = [...praise, ...praise];
+export function TestimonialMarquee() {
+  const items = [...testimonials, ...testimonials];
   return (
     <section
-      aria-label="Early praise"
+      aria-label="Early testimonials"
       className="marquee-mask relative overflow-hidden border-b border-border py-5"
     >
       <div className="flex w-max animate-marquee items-center gap-12 whitespace-nowrap px-5">
