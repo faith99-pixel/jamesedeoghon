@@ -98,6 +98,7 @@ export function Hero() {
                 alt="Portrait of James Edeoghon, author and medical doctor"
                 fill
                 priority
+                unoptimized
                 sizes="(max-width: 640px) 290px, 330px"
                 className="object-cover"
               />

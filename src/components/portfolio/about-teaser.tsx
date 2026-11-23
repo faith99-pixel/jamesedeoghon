@@ -18,6 +18,7 @@ export function AboutTeaser() {
                   src="/images/james-portrait.jpg"
                   alt="James Edeoghon smiling, wearing glasses and a beanie"
                   fill
+                  unoptimized
                   sizes="(max-width: 1024px) 90vw, 440px"
                   className="object-cover"
                 />
