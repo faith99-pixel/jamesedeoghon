@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle2, Instagram, Loader2, Mail, Twitter } from "lucide-react";
+import { Instagram, Loader2, Mail, Send, Twitter } from "lucide-react";
 import { Reveal } from "./reveal";
 import { useToast } from "@/hooks/use-toast";
 
 const subjects = ["General enquiry", "Book purchase", "Press & media", "Literary agent"];
 
-export function Contact() {
+export function ContactContent() {
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -57,24 +57,23 @@ export function Contact() {
   }
 
   const inputClass =
-    "w-full rounded-xl border border-input bg-background/60 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/60";
+    "w-full rounded-xl border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 transition-colors";
 
   return (
-    <section id="contact" className="relative py-24 md:py-32">
+    <section className="relative py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
           <div>
             <Reveal>
-              <p className="mb-4 text-xs font-medium uppercase tracking-[0.28em] text-teal">
-                Contact
-              </p>
               <h2 className="font-display text-4xl leading-tight tracking-tight text-foreground sm:text-5xl">
-                Say <span className="italic text-primary">hello</span>
+                Write to{" "}
+                <span className="italic text-accent">James</span>
               </h2>
               <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground">
                 For official enquiries regarding the book, interviews,
                 features or speaking engagements — or simply to share what
-                Leonard and Natasha’s story meant to you — drop a line below.
+                Leonard and Natasha's story meant to you — drop a line below
+                or reach out directly.
               </p>
             </Reveal>
 
@@ -82,9 +81,9 @@ export function Contact() {
               <div className="mt-9 space-y-4">
                 <a
                   href="mailto:hello@jamesedeoghon.com"
-                  className="group flex items-center gap-4 rounded-2xl border border-border/60 bg-card/60 p-5 transition-all hover:border-teal/40"
+                  className="group flex items-center gap-4 rounded-2xl border border-border bg-card p-5 transition-all duration-300 hover:border-accent/40 hover:shadow-luxe"
                 >
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors group-hover:bg-primary/20">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-accent/25 bg-accent/[0.07] text-accent transition-colors group-hover:bg-accent/[0.12]">
                     <Mail className="h-5 w-5" aria-hidden="true" />
                   </span>
                   <span>
@@ -102,9 +101,9 @@ export function Contact() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="James Edeoghon on Instagram"
-                    className="group flex flex-1 items-center gap-4 rounded-2xl border border-border/60 bg-card/60 p-5 transition-all hover:border-teal/40"
+                    className="group flex flex-1 items-center gap-4 rounded-2xl border border-border bg-card p-5 transition-all duration-300 hover:border-accent/40 hover:shadow-luxe"
                   >
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-teal/10 text-teal transition-colors group-hover:bg-teal/20">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-teal/30 bg-teal/[0.07] text-teal transition-colors group-hover:bg-teal/[0.12]">
                       <Instagram className="h-5 w-5" aria-hidden="true" />
                     </span>
                     <span>
@@ -119,9 +118,9 @@ export function Contact() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="James Edeoghon on X (Twitter)"
-                    className="group flex flex-1 items-center gap-4 rounded-2xl border border-border/60 bg-card/60 p-5 transition-all hover:border-teal/40"
+                    className="group flex flex-1 items-center gap-4 rounded-2xl border border-border bg-card p-5 transition-all duration-300 hover:border-accent/40 hover:shadow-luxe"
                   >
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors group-hover:bg-primary/20">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-accent/25 bg-accent/[0.07] text-accent transition-colors group-hover:bg-accent/[0.12]">
                       <Twitter className="h-5 w-5" aria-hidden="true" />
                     </span>
                     <span>
@@ -139,7 +138,7 @@ export function Contact() {
           <Reveal delay={0.12}>
             <form
               onSubmit={onSubmit}
-              className="rounded-3xl border border-border/70 bg-card/60 p-6 sm:p-8"
+              className="rounded-[2rem] border border-border bg-card p-6 shadow-luxe sm:p-8"
               aria-label="Contact form"
             >
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -205,12 +204,12 @@ export function Contact() {
               <button
                 type="submit"
                 disabled={loading}
-                className="mt-6 inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-primary text-sm font-semibold text-primary-foreground transition-all hover:brightness-110 hover:shadow-[0_0_28px_rgba(224,166,79,0.35)] disabled:opacity-70 sm:w-auto sm:px-10"
+                className="mt-6 inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-primary text-sm font-semibold text-primary-foreground transition-all duration-300 hover:shadow-[0_18px_40px_-12px_oklch(0.35_0.04_60/0.5)] disabled:opacity-70 sm:w-auto sm:px-10"
               >
                 {loading ? (
                   <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
                 ) : (
-                  <CheckCircle2 className="h-4 w-4" aria-hidden="true" />
+                  <Send className="h-4 w-4" aria-hidden="true" />
                 )}
                 {loading ? "Sending…" : "Send message"}
               </button>

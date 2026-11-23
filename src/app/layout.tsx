@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Fraunces, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import { Nav } from "@/components/portfolio/nav";
+import { Footer } from "@/components/portfolio/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,7 +23,10 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "James Edeoghon — Author of British Natasha and the Ashewo Doctor",
+  title: {
+    default: "James Edeoghon — Author of British Natasha and the Ashewo Doctor",
+    template: "%s — James Edeoghon",
+  },
   description:
     "Official portfolio of James Edeoghon: medical doctor by profession, storyteller by calling. His debut novel, British Natasha and the Ashewo Doctor, is out now.",
   keywords: [
@@ -58,7 +63,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} antialiased bg-background text-foreground`}
       >
-        {children}
+        <div className="flex min-h-screen flex-col overflow-x-clip">
+          <Nav />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </div>
         <Toaster />
       </body>
     </html>
