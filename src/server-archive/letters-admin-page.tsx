@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SubscribersAdmin } from "@/components/portfolio/subscribers-admin";
+import { SubscribersAdmin } from "@/server-archive/subscribers-admin";
 
 export const metadata: Metadata = {
   title: "Letter List — Admin",

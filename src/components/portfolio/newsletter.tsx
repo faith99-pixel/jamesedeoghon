@@ -5,8 +5,19 @@ import { Loader2, Send } from "lucide-react";
 import { Reveal } from "./reveal";
 import { useToast } from "@/hooks/use-toast";
 
+/**
+ * The site is fully static, so signups are delivered through FormSubmit
+ * (https://formsubmit.co) — every submission is emailed straight to James's
+ * inbox, no server or database needed. The very first submission triggers a
+ * one-time activation email from FormSubmit; James clicks that link once
+ * and the list runs itself from then on.
+ */
+const FORMSUBMIT_ENDPOINT =
+  "https://formsubmit.co/ajax/jamesedeoghon@gmail.com";
+
 export function Newsletter() {
   const [email, setEmail] = useState("");
+  const [honey, setHoney] = useState("");
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
 
@@ -15,26 +26,36 @@ export function Newsletter() {
     if (loading) return;
     setLoading(true);
     try {
-      const res = await fetch("/api/newsletter", {
+      const res = await fetch(FORMSUBMIT_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          email: email.trim().toLowerCase(),
+          _subject: `New letter-list signup — ${email.trim().toLowerCase()}`,
+          _template: "box",
+          _captcha: "false",
+          _honey: honey,
+        }),
       });
-      const data = await res.json();
-      if (!res.ok) {
-        toast({
-          title: "Hmm, something's off",
-          description: data.error ?? "Please try again.",
-          variant: "destructive",
-        });
-      } else {
-        toast({
-          title: "You're on the list",
-          description:
-            "Delightful news and important information only. Thank you for subscribing.",
-        });
-        setEmail("");
+      const data = (await res.json().catch(() => null)) as {
+        success?: string | boolean;
+      } | null;
+
+      // FormSubmit returns success as the string "true" (sometimes a boolean)
+      const ok = res.ok && (data?.success === "true" || data?.success === true);
+      if (!ok) {
+        throw new Error("Signup failed");
       }
+
+      toast({
+        title: "You're on the list",
+        description:
+          "Delightful news and important information only. Thank you for subscribing.",
+      });
+      setEmail("");
     } catch {
       toast({
         title: "Connection problem",
@@ -88,6 +109,16 @@ export function Newsletter() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Your email address"
                 className="h-11 flex-1 rounded-none border-0 border-b border-[oklch(0.93_0.012_84/0.3)] bg-transparent px-0 text-sm text-[oklch(0.93_0.012_84)] placeholder:text-[oklch(0.93_0.012_84/0.4)] focus-visible:border-[oklch(0.72_0.1_75)] focus-visible:outline-none"
+              />
+              <input
+                type="text"
+                name="_honey"
+                value={honey}
+                onChange={(e) => setHoney(e.target.value)}
+                className="hidden"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
               />
               <button
                 type="submit"

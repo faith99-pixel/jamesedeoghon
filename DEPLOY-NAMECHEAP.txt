@@ -1,0 +1,70 @@
+DEPLOYING THE WEBSITE TO NAMECHEAP (SHARED HOSTING / cPANEL)
+=============================================================
+
+The site is now a fully static website (plain HTML/CSS/JS), so it runs on
+Namecheap shared hosting with no Node.js server required.
+
+QUICK OPTION — UPLOAD THE READY-MADE ZIP
+-----------------------------------------
+1. Download: open the site preview, and go to the address
+   /website-deploy.zip  (click "Open in New Tab" above the preview panel
+   and add /website-deploy.zip to the URL). This file was built today and
+   contains the finished site.
+2. Log in to Namecheap -> cPanel -> File Manager.
+3. Open the "public_html" folder. Delete anything inside it that you do
+   not need (Namecheap sometimes leaves a default page such as index.html
+   or a "default.html" placeholder).
+4. Upload website-deploy.zip into public_html.
+5. Right-click the zip -> Extract. Extract HERE (into public_html).
+6. Delete the zip after extracting (optional, keeps things tidy).
+7. Visit your domain — the site should be live.
+
+WHAT IS INSIDE THE ZIP
+----------------------
+- index.html            the homepage
+- about.html            /about
+- book.html             /book
+- testimonials.html     /testimonials
+- events.html           /events (Abuja reading photo gallery)
+- contact.html          /contact
+- 404.html              the not-found page
+- .htaccess             Apache config: forces HTTPS, gives clean URLs
+                        (/about instead of /about.html), sets caching
+- _next/, images/       styles, scripts and photos
+IMPORTANT: .htaccess starts with a dot — if you do not see it after
+extracting, enable "Show Hidden Files" in File Manager (Settings button).
+
+CONTACT FORM & NEWSLETTER (FormSubmit.co)
+-----------------------------------------
+The contact form and the "letter list" signup email their submissions
+straight to jamesedeoghon@gmail.com using FormSubmit.co (free, no
+account needed).
+
+ONE-TIME STEP: the very first submission from the live site triggers an
+"Activate FormSubmit" email to jamesedeoghon@gmail.com — James simply
+clicks the Activate link in that email once, and every message/signup
+afterwards arrives in his inbox automatically. (No activation is needed
+again unless the email address is changed.)
+
+Test it after going live: submit the contact form once, click the
+activation link in the email, then submit again to confirm it lands in
+the inbox.
+
+PUTTING YOUR DOMAIN ON THE HOSTING
+----------------------------------
+If the domain was bought on Namecheap but hosting is a separate plan:
+cPanel -> Domains, or Namecheap dashboard -> Domain List -> Manage ->
+make sure the domain is pointed to the hosting account (Nameservers:
+if the hosting is Namecheap Stellar, use the provided nameservers shown
+in the hosting panel). SSL: cPanel -> Security -> SSL/TLS Status ->
+"Run AutoSSL" for the free HTTPS certificate. The .htaccess already
+forces the https:// version.
+
+FUTURE UPDATES
+--------------
+When the site content changes, a new website-deploy.zip is produced and
+the same upload steps apply (upload, extract, replace files). The
+source project can also rebuild the static files at any time with:
+    npm run build      (or: bun run build)
+which produces an "out/" folder — its contents are exactly what gets
+zipped and uploaded.
