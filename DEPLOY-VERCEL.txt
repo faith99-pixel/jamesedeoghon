@@ -1,0 +1,63 @@
+DEPLOYING THE WEBSITE TO VERCEL
+===============================
+
+Vercel is the company behind Next.js — the site deploys there natively
+and hosting on the Hobby (free) plan is enough for this site.
+
+TWO WAYS TO DEPLOY
+------------------
+
+PATH A — "Deploy it for me" (easiest)
+-------------------------------------
+1. Create a free account at https://vercel.com (sign up with Google,
+   GitHub or email).
+2. Go to https://vercel.com/account/settings/tokens (Vercel dashboard ->
+   click your avatar -> Settings -> Tokens), create a token with any
+   name (e.g. "website deploy"), choose "Full Account" scope and an
+   expiration, then copy it.
+3. Send the token in the chat — the site gets deployed from here and
+   you receive the live URL (something like james-edeoghon.vercel.app).
+4. You can delete the token afterwards; it is only needed for the
+   deployment itself.
+
+PATH B — "I'll do it myself" via GitHub (the standard way)
+----------------------------------------------------------
+1. Download the ready source package:
+   Open the site preview and download /project-source.zip
+   (it contains the clean project — no secrets, no build junk).
+2. Unzip it on your computer.
+3. Create a free account at https://github.com, then create a new
+   repository (github.com/new) — name it anything, e.g.
+   "james-edeoghon-website", keep it Private or Public (either works).
+4. On the new repo page, use the "uploading an existing file" link and
+   drag-and-drop ALL files and folders from the unzipped project, then
+   click "Commit changes".
+5. Go to https://vercel.com/new and click "Import" next to your new
+   repository. Vercel auto-detects Next.js — leave every setting as it
+   is and click "Deploy".
+6. After ~1 minute the site is live at
+   https://your-project-name.vercel.app
+
+CONNECTING YOUR CUSTOM DOMAIN (e.g. bought on Namecheap)
+--------------------------------------------------------
+1. In the Vercel dashboard open your project -> Settings -> Domains ->
+   add your domain (both "yourdomain.com" and "www.yourdomain.com").
+2. Vercel will show you the DNS records to set. On Namecheap:
+   Domain List -> Manage -> Advanced DNS:
+   - A Record:  @  -> 76.76.21.21
+   - CNAME:     www -> cname.vercel-dns.com
+3. HTTPS certificates are issued by Vercel automatically.
+
+HOW THE FORMS WORK ON VERCEL
+----------------------------
+Nothing changes: the contact form and the newsletter still email
+jamesedeoghon@gmail.com through FormSubmit.co. The first live
+submission triggers a one-time "Activate FormSubmit" email — James
+clicks the link once and every message/signup afterwards arrives in
+his inbox automatically.
+
+FUTURE UPDATES
+--------------
+- GitHub path: any change pushed to the repository redeploys
+  automatically.
+- Token path: ask in the chat and a new deployment is pushed from here.
