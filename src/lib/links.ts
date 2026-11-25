@@ -9,3 +9,5 @@ export const CULTURE_CUSTODIAN_URL =
 
 export const GOODREADS_BOOK_URL =
   "https://www.goodreads.com/book/show/262425762-british-natasha-and-the-ashewo-doctor";
+
+export const BLOG_URL = "https://www.litjames.com";

@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { AMAZON_BOOK_URL } from "@/lib/links";
+import { AMAZON_BOOK_URL, BLOG_URL } from "@/lib/links";
 
 const links = [
   { href: "/about", label: "About" },
@@ -89,6 +89,14 @@ export function Nav() {
               </Link>
             ))}
             <a
+              href={BLOG_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`link-sweep text-[11px] font-medium uppercase tracking-[0.22em] transition-colors text-muted-foreground hover:text-foreground`}
+            >
+              Blog
+            </a>
+            <a
               href={AMAZON_BOOK_URL}
               target="_blank"
               rel="noopener noreferrer"
@@ -156,6 +164,24 @@ export function Nav() {
                     </Link>
                   </motion.div>
                 ))}
+                <motion.div
+                  initial={{ opacity: 0, y: 14 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 + 0.06 * mobileLinks.length, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  className="border-b border-[oklch(0.93_0.012_84/0.12)]"
+                >
+                  <a
+                    href={BLOG_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setOpen(false)}
+                    className="group block py-5"
+                  >
+                    <span className="text-2xl font-light uppercase tracking-[0.2em] text-[oklch(0.93_0.012_84/0.55)] transition-colors group-hover:text-[oklch(0.93_0.012_84)]">
+                      Blog
+                    </span>
+                  </a>
+                </motion.div>
               </nav>
             </div>
 
