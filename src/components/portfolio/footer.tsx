@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { AMAZON_BOOK_URL, BLOG_URL } from "@/lib/links";
+import { AMAZON_BOOK_URL, BLOG_URL, PODCAST_YOUTUBE_URL, PODCAST_SPOTIFY_URL } from "@/lib/links";
 
 const pageLinks = [
   { href: "/", label: "Home" },
@@ -93,6 +93,22 @@ export function Footer() {
                 className="link-sweep w-fit text-sm text-[oklch(0.93_0.012_84/0.65)] transition-colors hover:text-[oklch(0.93_0.012_84)]"
               >
                 @novelistjames — Instagram
+              </a>
+              <a
+                href={PODCAST_YOUTUBE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-sweep w-fit text-sm text-[oklch(0.93_0.012_84/0.65)] transition-colors hover:text-[oklch(0.93_0.012_84)]"
+              >
+                LitJames Podcast — YouTube
+              </a>
+              <a
+                href={PODCAST_SPOTIFY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-sweep w-fit text-sm text-[oklch(0.93_0.012_84/0.65)] transition-colors hover:text-[oklch(0.93_0.012_84)]"
+              >
+                LitJames Podcast — Spotify
               </a>
             </div>
           </div>

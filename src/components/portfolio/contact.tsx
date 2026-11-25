@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { Reveal } from "./reveal";
 import { useToast } from "@/hooks/use-toast";
+import { PODCAST_YOUTUBE_URL, PODCAST_SPOTIFY_URL } from "@/lib/links";
 
 const subjects = ["General enquiry", "Book purchase", "Press & media", "Literary agent"];
 
@@ -166,6 +167,42 @@ export function ContactContent() {
                   </span>
                   <span className="flex items-center gap-3 text-sm text-foreground">
                     @novelistjames
+                    <ArrowRight
+                      className="h-3.5 w-3.5 text-accent transition-transform duration-300 group-hover:translate-x-1"
+                      aria-hidden="true"
+                    />
+                  </span>
+                </a>
+                <a
+                  href={PODCAST_YOUTUBE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LitJames Podcast on YouTube"
+                  className="group flex items-center justify-between border-t border-border py-5"
+                >
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.26em] text-muted-foreground">
+                    Podcast — YouTube
+                  </span>
+                  <span className="flex items-center gap-3 text-sm text-foreground">
+                    @litjamespodcast
+                    <ArrowRight
+                      className="h-3.5 w-3.5 text-accent transition-transform duration-300 group-hover:translate-x-1"
+                      aria-hidden="true"
+                    />
+                  </span>
+                </a>
+                <a
+                  href={PODCAST_SPOTIFY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LitJames Podcast on Spotify"
+                  className="group flex items-center justify-between border-t border-border py-5"
+                >
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.26em] text-muted-foreground">
+                    Podcast — Spotify
+                  </span>
+                  <span className="flex items-center gap-3 text-sm text-foreground">
+                    LitJames Podcast
                     <ArrowRight
                       className="h-3.5 w-3.5 text-accent transition-transform duration-300 group-hover:translate-x-1"
                       aria-hidden="true"

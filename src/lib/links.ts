@@ -11,3 +11,6 @@ export const GOODREADS_BOOK_URL =
   "https://www.goodreads.com/book/show/262425762-british-natasha-and-the-ashewo-doctor";
 
 export const BLOG_URL = "https://www.litjames.com";
+
+export const PODCAST_YOUTUBE_URL = "https://youtube.com/@litjamespodcast";
+export const PODCAST_SPOTIFY_URL = "https://open.spotify.com/show/5NUNVcStGgU0FFOWhGvzTI";
