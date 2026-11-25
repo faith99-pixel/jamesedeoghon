@@ -7,7 +7,6 @@ const pageLinks = [
   { href: "/book", label: "The Book" },
   { href: "/testimonials", label: "Testimonials" },
   { href: "/events", label: "Events" },
-  { href: "/contact", label: "Contact" },
 ];
 
 export function Footer() {
@@ -66,6 +65,12 @@ export function Footer() {
               >
                 Blog
               </a>
+              <Link
+                href="/contact"
+                className="link-sweep w-fit text-sm text-[oklch(0.93_0.012_84/0.65)] transition-colors hover:text-[oklch(0.93_0.012_84)]"
+              >
+                Contact
+              </Link>
             </nav>
           </div>
 

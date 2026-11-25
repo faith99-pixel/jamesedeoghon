@@ -12,7 +12,6 @@ const links = [
   { href: "/book", label: "The Book" },
   { href: "/testimonials", label: "Testimonials" },
   { href: "/events", label: "Events" },
-  { href: "/contact", label: "Contact" },
 ];
 
 const mobileLinks = [{ href: "/", label: "Home" }, ...links];
@@ -96,6 +95,17 @@ export function Nav() {
             >
               Blog
             </a>
+            <Link
+              href="/contact"
+              aria-current={isActive("/contact") ? "page" : undefined}
+              className={`link-sweep text-[11px] font-medium uppercase tracking-[0.22em] transition-colors ${
+                isActive("/contact")
+                  ? "text-foreground after:scale-x-100"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              Contact
+            </Link>
             <a
               href={AMAZON_BOOK_URL}
               target="_blank"
@@ -153,7 +163,7 @@ export function Nav() {
                       className="group block py-5"
                     >
                       <span
-                        className={`text-2xl font-light uppercase tracking-[0.2em] transition-colors ${
+                        className={`text-xl font-light uppercase tracking-[0.2em] transition-colors ${
                           isActive(l.href)
                             ? "text-[oklch(0.93_0.012_84)]"
                             : "text-[oklch(0.93_0.012_84/0.55)] group-hover:text-[oklch(0.93_0.012_84)]"
@@ -177,10 +187,33 @@ export function Nav() {
                     onClick={() => setOpen(false)}
                     className="group block py-5"
                   >
-                    <span className="text-2xl font-light uppercase tracking-[0.2em] text-[oklch(0.93_0.012_84/0.55)] transition-colors group-hover:text-[oklch(0.93_0.012_84)]">
+                    <span className="text-xl font-light uppercase tracking-[0.2em] text-[oklch(0.93_0.012_84/0.55)] transition-colors group-hover:text-[oklch(0.93_0.012_84)]">
                       Blog
                     </span>
                   </a>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 14 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 + 0.06 * (mobileLinks.length + 1), duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  className="border-b border-[oklch(0.93_0.012_84/0.12)]"
+                >
+                  <Link
+                    href="/contact"
+                    onClick={() => setOpen(false)}
+                    aria-current={isActive("/contact") ? "page" : undefined}
+                    className="group block py-5"
+                  >
+                    <span
+                      className={`text-xl font-light uppercase tracking-[0.2em] transition-colors ${
+                        isActive("/contact")
+                          ? "text-[oklch(0.93_0.012_84)]"
+                          : "text-[oklch(0.93_0.012_84/0.55)] group-hover:text-[oklch(0.93_0.012_84)]"
+                      }`}
+                    >
+                      Contact
+                    </span>
+                  </Link>
                 </motion.div>
               </nav>
             </div>
