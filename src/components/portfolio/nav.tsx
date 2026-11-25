@@ -73,7 +73,7 @@ export function Nav() {
             </span>
           </Link>
 
-          <div className="hidden items-center gap-9 md:flex lg:gap-11">
+          <div className="hidden items-center gap-5 md:flex lg:gap-7">
             {links.map((l) => (
               <Link
                 key={l.href}
